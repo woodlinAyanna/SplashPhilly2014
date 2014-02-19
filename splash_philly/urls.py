@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, include, url
-
+from splash_philly import views,settings
+from django.conf.urls.static import static
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -9,4 +11,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', views.HomeView.as_view(), name='home'),
 )
