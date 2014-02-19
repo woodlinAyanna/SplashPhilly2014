@@ -4,3 +4,6 @@
 local_settings.py
 venv
 staticfiles
+
+/.google_api_key
+/.secret_key

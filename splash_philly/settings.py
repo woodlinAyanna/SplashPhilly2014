@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from splash_philly import secret_key
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 TEMPLATE_DIRS = (
@@ -20,8 +22,11 @@ TEMPLATE_DIRS = (
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1dy+dli(xcm9ah1gkr$z8&@h4n-i)5_^$r0=5s^4s*+ax82c$@'
 
+#In production, don't set Skip Check to false.
+SECRET_KEY = secret_key.generate_or_read_from_file(skip_permission_check=True)
+#Put your google api key in a file called .google_api_key -- this will be loaded automatically here
+GOOGLE_API_KEY = secret_key.get_google_api_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
