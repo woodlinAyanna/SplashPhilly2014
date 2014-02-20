@@ -12,7 +12,7 @@ class Pool(models.Model):
     name = models.CharField(max_length=300)
     address = map_fields.AddressField(max_length=800)
     geolocation = map_fields.GeoLocationField(blank=True)
-    rating = models.IntegerField(default=0)
+    rating = models.FloatField(default=0)
 
     def __str__(self):
         return "%s at %s" % (self.name,  self.address)
