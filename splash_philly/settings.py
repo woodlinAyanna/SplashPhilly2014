@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'south',
     'localflavor',
     'splash_philly',
+    'django_google_maps',
 )
 
 MIDDLEWARE_CLASSES = (
