@@ -13,3 +13,5 @@ class Pool(models.Model):
     address = map_fields.AddressField(max_length=800)
     geolocation = map_fields.GeoLocationField(blank=True)
 
+    def __str__(self):
+        return "%s at %s" % (self.name,  self.address)

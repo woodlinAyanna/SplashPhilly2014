@@ -12,4 +12,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.HomeView.as_view(), name='home'),
+    url(r'^map$', views.MapView.as_view(),name='map'),
 )

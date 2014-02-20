@@ -1,5 +1,8 @@
 <html>
-<head><title></title></head>
+<head><title></title>
+{% block head %}
+{% endblock  %}
+</head>
 
 <body>
 
@@ -21,7 +24,7 @@
     <link href="{{ STATIC_URL }}bootstrap-dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ STATIC_URL }}css/starter-template.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/splash_philly.css" rel="stylesheet">
   </head>
 
   <body>
@@ -40,6 +43,8 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
+            <li><a href="/map">Render Pools on Map</a></li>
+            <li><a href="/admin">Admin</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

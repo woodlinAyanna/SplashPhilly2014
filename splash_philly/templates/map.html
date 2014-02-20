@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% load google_api_key %}
+{% block head %}
+    <!--  uncomment this line for production  <script src="http://maps.google.com/maps/api/js?key={% google_api_key %}&sensor=false"></script> -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+
+
+
+
+function initialize() {
+
+  var mapOptions = {
+          center: new google.maps.LatLng(39.987643,-75.167298),
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+
+
+
+    {% for pool in object_list %}
+
+  var center = new google.maps.LatLng({{pool.geolocation}});
+  marker = new google.maps.Marker({map: map, position: center, title: "{{pool.name}}"});
+{% endfor %}
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+{% endblock %}
+{% block content %}
+<div class="jumbotron" onload='initialize()'>
+    <h3>Here is a (really) basic example of drawing pools on the map. In finished product you want to call a method that returns a json list of pools, and add/filter/etc in realtime.
+    Get the basic concept working first, then worrying about making it "fancy!"
+    If this is empty, go add some pools in the <a href="/admin">admin</a> page!</h3>
+</div>
+
+<div style='height: 50%; width:100%' id='map-canvas'></div>
+
+<h3>Pools</h3>
+    <ul>
+{% for pool in object_list %}
+    <li>
+    {{ pool.name }} at {{ pool.address }}
+    </li>
+{% endfor %}
+  </ul>
+
+{% endblock %}
