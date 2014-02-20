@@ -5,7 +5,7 @@ from django_google_maps import fields as map_fields
 
 
 
-
+#Consider implementing something like http://www.yetihq.com/blog/integrating-google-places-api-and-django-tastypie/ to directly call google places into Pool objects
 
 
 class Pool(models.Model):
